@@ -1,0 +1,9 @@
+Flask
+Flask-Cors
+gunicorn
+yfinance
+pandas
+pandas-ta
+setuptools
+numpy==1.26.4
+scipy
