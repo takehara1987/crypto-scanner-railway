@@ -196,11 +196,33 @@ def analisar_ativo_mtf(ticker):
 # ==============================================================================
 @app.route('/scan', methods=['GET'])
 def scan_market():
-    # Watchlist otimizada para o plano gratuito da Railway/Render
+    # Watchlist expandida para 200 ativos
     watchlist = [
+        # Top Tier & Large Caps (50)
         "BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "XRP-USD", "DOGE-USD", "ADA-USD", "AVAX-USD", "SHIB-USD", "DOT-USD",
-        "LINK-USD", "TON-USD", "TRX-USD", "MATIC-USD", "BCH-USD", "LTC-USD", "NEAR-USD", "UNI-USD", "XLM-USD", "ATOM-USD"
+        "LINK-USD", "TON-USD", "TRX-USD", "MATIC-USD", "BCH-USD", "LTC-USD", "NEAR-USD", "UNI-USD", "XLM-USD", "ATOM-USD",
+        "ETC-USD", "XMR-USD", "ICP-USD", "HBAR-USD", "VET-USD", "FIL-USD", "APT-USD", "CRO-USD", "LDO-USD", "ARB-USD",
+        "QNT-USD", "AAVE-USD", "ALGO-USD", "STX-USD", "FTM-USD", "EOS-USD", "SAND-USD", "MANA-USD", "THETA-USD", "AXS-USD",
+        "RNDR-USD", "XTZ-USD", "SUI-USD", "PEPE-USD", "INJ-USD", "GALA-USD", "SNX-USD", "OP-USD", "KAS-USD", "TIA-USD",
+        # Mid Caps (50)
+        "MKR-USD", "RUNE-USD", "WIF-USD", "JUP-USD", "SEI-USD", "EGLD-USD", "FET-USD", "FLR-USD", "BONK-USD", "BGB-USD",
+        "BEAM-USD", "DYDX-USD", "AGIX-USD", "NEO-USD", "WLD-USD", "ROSE-USD", "PYTH-USD", "GNO-USD", "CHZ-USD", "MINA-USD",
+        "FLOW-USD", "KCS-USD", "FXS-USD", "KLAY-USD", "GMX-USD", "RON-USD", "CFX-USD", "CVX-USD", "ZEC-USD", "AIOZ-USD",
+        "WEMIX-USD", "ENA-USD", "TWT-USD", "CAKE-USD", "CRV-USD", "FLOKI-USD", "BTT-USD", "1INCH-USD", "GMT-USD", "ZIL-USD",
+        "ANKR-USD", "JASMY-USD", "KSM-USD", "LUNC-USD", "USTC-USD", "CELO-USD", "IOTA-USD", "HNT-USD", "RPL-USD", "FTT-USD",
+        # Additional Mid/Small Caps (100)
+        "XDC-USD", "PAXG-USD", "DASH-USD", "ENS-USD", "BAT-USD", "ZRX-USD", "YFI-USD", "SUSHI-USD", "UMA-USD", "REN-USD",
+        "KNC-USD", "BAL-USD", "LRC-USD", "OCEAN-USD", "POWR-USD", "RLC-USD", "BAND-USD", "TRB-USD", "API3-USD", "BLZ-USD",
+        "PERP-USD", "COTI-USD", "STORJ-USD", "SKL-USD", "CTSI-USD", "NKN-USD", "OGN-USD", "NMR-USD", "IOTX-USD", "AUDIO-USD",
+        "CVC-USD", "LOOM-USD", "MDT-USD", "REQ-USD", "RLY-USD", "TRU-USD", "ACH-USD", "AGLD-USD", "ALCX-USD", "AMP-USD",
+        "ARPA-USD", "AUCTION-USD", "BADGER-USD", "BICO-USD", "BNT-USD", "BOND-USD", "CLV-USD", "CTX-USD", "DDX-USD", "DIA-USD",
+        "DREP-USD", "ELF-USD", "FARM-USD", "FORTH-USD", "GHST-USD", "GTC-USD", "HIGH-USD", "IDEX-USD", "KEEP-USD", "KP3R-USD",
+        "LCX-USD", "MASK-USD", "MLN-USD", "NEST-USD", "NU-USD", "ORN-USD", "OXT-USD", "PLA-USD", "POLS-USD", "POND-USD",
+        "RAI-USD", "RGT-USD", "SHPING-USD", "SPELL-USD", "SUPER-USD", "WNXM-USD", "YFII-USD", "RAD-USD", "COVAL-USD", "OMG-USD",
+        "ENJ-USD", "WAVES-USD", "ICX-USD", "QTUM-USD", "ONT-USD", "IOST-USD", "DGB-USD", "SC-USD", "LSK-USD", "ARDR-USD",
+        "SYS-USD", "STEEM-USD", "NEXO-USD", "HOT-USD", "BTG-USD", "ZEN-USD", "SRM-USD", "DCR-USD", "RVN-USD", "NANO-USD"
     ]
+    watchlist = list(dict.fromkeys(watchlist))[:200]
     
     alertas_confirmados = []; setups_aguardando_gatilho = []; ativos_em_observacao = []
     
