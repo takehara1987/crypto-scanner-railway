@@ -1,4 +1,4 @@
-### CÓDIGO FINAL E COMPLETO (v46 - PARA RAILWAY) ###
+### CÓDIGO FINAL E COMPLETO (v47 - PARA RAILWAY COM 300 ATIVOS) ###
 
 # ==============================================================================
 # ETAPA 0: IMPORTAÇÕES E CONFIGURAÇÃO DA APLICAÇÃO
@@ -196,7 +196,9 @@ def analisar_ativo_mtf(ticker):
 # ==============================================================================
 @app.route('/scan', methods=['GET'])
 def scan_market():
-    # Watchlist expandida para 200 ativos
+    """Executa o scanner para a watchlist e retorna os resultados em formato JSON."""
+    
+    # WATCHLIST EXPANDIDA PARA 300 ATIVOS
     watchlist = [
         # Top Tier & Large Caps (50)
         "BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "XRP-USD", "DOGE-USD", "ADA-USD", "AVAX-USD", "SHIB-USD", "DOT-USD",
@@ -220,9 +222,20 @@ def scan_market():
         "LCX-USD", "MASK-USD", "MLN-USD", "NEST-USD", "NU-USD", "ORN-USD", "OXT-USD", "PLA-USD", "POLS-USD", "POND-USD",
         "RAI-USD", "RGT-USD", "SHPING-USD", "SPELL-USD", "SUPER-USD", "WNXM-USD", "YFII-USD", "RAD-USD", "COVAL-USD", "OMG-USD",
         "ENJ-USD", "WAVES-USD", "ICX-USD", "QTUM-USD", "ONT-USD", "IOST-USD", "DGB-USD", "SC-USD", "LSK-USD", "ARDR-USD",
-        "SYS-USD", "STEEM-USD", "NEXO-USD", "HOT-USD", "BTG-USD", "ZEN-USD", "SRM-USD", "DCR-USD", "RVN-USD", "NANO-USD"
+        "SYS-USD", "STEEM-USD", "NEXO-USD", "HOT-USD", "BTG-USD", "ZEN-USD", "SRM-USD", "DCR-USD", "RVN-USD", "NANO-USD",
+        # 100 Novos Ativos
+        "AERGO-USD", "AION-USD", "AKRO-USD", "ALICE-USD", "ALPHA-USD", "ANT-USD", "AR-USD", "ARK-USD", "AST-USD", "ATA-USD",
+        "AVA-USD", "BAKE-USD", "BCHA-USD", "BCN-USD", "BDX-USD", "BEL-USD", "BIFI-USD", "BNX-USD", "BTS-USD", "BURGER-USD",
+        "BZRX-USD", "C98-USD", "CELR-USD", "CHR-USD", "CKB-USD", "COS-USD", "COVER-USD", "CREAM-USD", "CTK-USD", "CTXC-USD",
+        "CVP-USD", "DEGO-USD", "DEXE-USD", "DF-USD", "DNT-USD", "DODO-USD", "DUSK-USD", "EASY-USD", "ELON-USD", "ERN-USD",
+        "FIRO-USD", "FIS-USD", "FLM-USD", "FOR-USD", "FRONT-USD", "FUN-USD", "GAS-USD", "GLM-USD", "HARD-USD", "HIVE-USD",
+        "ID-USD", "IRIS-USD", "JST-USD", "JUV-USD", "KAVA-USD", "KMD-USD", "LINA-USD", "LIT-USD", "LPT-USD", "LTO-USD",
+        "MBL-USD", "MBOX-USD", "MDX-USD", "MFT-USD", "MIR-USD", "MITH-USD", "NBS-USD", "NULS-USD", "OAX-USD", "OG-USD",
+        "ONG-USD", "PAX-USD", "PERL-USD", "PHA-USD", "PNT-USD", "PROM-USD", "PROS-USD", "PSG-USD", "PUNDIX-USD", "QI-USD",
+        "QUICK-USD", "RAMP-USD", "RAY-USD", "REEF-USD", "REP-USD", "RIF-USD", "SFP-USD", "SLP-USD", "SNT-USD", "SOLO-USD",
+        "STMX-USD", "STPT-USD", "STRAX-USD", "SUN-USD", "SXP-USD", "TCT-USD", "TFUEL-USD", "TKO-USD", "TOMO-USD", "TORN-USD"
     ]
-    watchlist = list(dict.fromkeys(watchlist))[:200]
+    watchlist = list(dict.fromkeys(watchlist))[:300]
     
     alertas_confirmados = []; setups_aguardando_gatilho = []; ativos_em_observacao = []
     
